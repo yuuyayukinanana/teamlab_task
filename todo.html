@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2016 Google Inc.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title"></title>
+  <!--firebase-->
+  <script src="/__/firebase/5.0.0/firebase-app.js"></script>
+  <script src="/__/firebase/5.0.0/firebase-auth.js"></script>
+  <script src="/__/firebase/5.0.0/firebase-database.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <!--uilit3-->
+  <link rel="stylesheet" href="css/uikit.min.css" />
+  <script src="js/uikit.min.js"></script>
+  <script src="js/uikit-icons.min.js"></script>
+  <!--flatpickr(カレンダー入力ツール)-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+  <script>
+  //セッションのデータとタイトルの生成
+  var userId = window.sessionStorage.getItem(['user']);
+  console.log(userId);
+  var todo_list_title = window.sessionStorage.getItem(['todo_list_id']);
+  console.log(todo_list_title);
+
+  firebase.database().ref('/users/'+ userId +'/'+ todo_list_title).once('value', function(snapshot){
+    var tabledata = snapshot.val();
+    document.getElementById('title').innerHTML =  tabledata['list_title']
+  })
+
+
+  </script>
+</head>
+
+</head>
+<body>
+
+<!--　ナビバー　-->
+  <div class="uk-section-primary uk-preserve-color">
+
+    <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+
+        <nav class="uk-navbar-container">
+            <div class="uk-container uk-container-expand">
+              <div class="uk-navbar-left">
+                  <a class="uk-navbar-item uk-logo">ToDoリスト</a>
+                  <div id="todo_button">
+
+  　　　　           <!--新規todoボタン-->
+                    <a class="uk-button uk-button uk-animation-scale-up" href="#todo_modal" uk-toggle>新規ToDo</a>
+                    <div id="todo_modal" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body">
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                            <h2 class="uk-modal-title">新規ToDo</h2>
+                            <p>タイトル</p>
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+                                <input class="uk-input" type="text" id=todo_title>
+                            </div>
+                            <p>重要度</p>
+                            <label class="uk-form-label" for="priority_select"></label>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" id="priority_select">
+                                    <option></option>
+                                    <option>高</option>
+                                    <option>中</option>
+                                    <option>低</option>
+                                </select>
+                            </div>
+                            <p>期限</p>
+                            <div class="flatpickr input-group" data-wrap="true" data-clickOpens="false">
+                              <label class="uk-form-label" for="todo_date_select"></label>
+                              <div class="uk-inline">
+                                  <a class="uk-form-icon" uk-icon="icon: calendar" data-toggle></a>
+                                  <a class="uk-form-icon uk-form-icon-flip" uk-icon="icon: close" data-clear></a>
+                                  <input id="todo_date_select" class="uk-input" data-mindate=today type="text" data-altinput=true data-input>
+                              </div>
+                            </div>
+                            <div class="uk-margin">
+                              <p class="uk-text-right">
+                                  <button class="uk-button uk-button-default uk-modal-close" type="button">キャンセル</button>
+                                  <button id="add_todo" class="uk-button uk-button-primary" type="button">追加</button>
+                              </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--検索ボタン-->
+                    <a class="uk-button uk-button" href="#search_modal" uk-toggle>検索</a>
+                    <div id="search_modal" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body">
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                            <h2 class="uk-modal-title">検索</h2>
+                            <p></p>
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+                                <input class="uk-input" type="text" id="search_data">
+                            </div>
+
+                            <p class="uk-text-right">
+                                <button class="uk-button uk-button-default uk-modal-close" type="button">キャンセル</button>
+                                <button id="search" class="uk-button uk-button-primary" type="button">検索</button>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--重要度分類ボタン-->
+                    <a class="uk-button" id="high">高</a>
+
+                    <a class="uk-button" id="middle">中</a>
+
+                    <a class="uk-button" id="low">底</a>
+
+                    <!--todolistへバックするボタン-->
+                    <a class="uk-button" href="https://todo-a383d.firebaseapp.com/todo_list.html" onclick="javascript:window.history.back(-1);return false;">リストに戻る</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!--　ナビバー　-->
+<!--テーブルビュー-->
+
+
+<div class="uk-margin uk-flex uk-flex-center uk-animation-scale-up">
+  <div class="uk-container uk-overflow-auto uk-text-lead uk-text-large">
+
+    <!--リストのタイトル-->
+    <h1 id="todo_list_title"></h1>
+    <script>
+    firebase.database().ref('/users/'+ userId +'/'+ todo_list_title).once('value', function(snapshot){
+      var midashi = document.getElementById('todo_list_title');
+      var tabledata = snapshot.val();
+      midashi.innerHTML =  tabledata['list_title']
+    })
+    </script>
+
+    <!--検索時に生成される終了ボタン-->
+    <button id="search_cancel" class="uk-button uk-button-default uk-modal-close" type="button">検索終了</button>
+  </div>
+
+<!--テーブル-->
+</div>
+<div class="uk-container uk-overflow-auto">
+  <table class="uk-table uk-table-divider" id="maintable">
+    <thead>
+        <tr>
+            <th></th>
+            <th>タイトル</th>
+            <th>期限</th>
+            <th>重要度</th>
+        </tr>
+    </thead>
+      <tbody>
+
+      </tbody>
+  </table>
+</div>
+
+
+
+
+
+<!--テーブルビューscript-->
+<script>
+  function main_table(mode){
+    console.log(mode)
+
+    //モード判定
+    if(mode =="search"){
+      console.log("searchok")
+      UIkit.modal("#search_modal").hide();
+      document.getElementById("search_cancel").style.visibility="visible";
+      var search_data = document.getElementById('search_data').value
+      console.log(search_data)
+      if(search_data){
+        var ref = firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').orderByChild('todo_title').startAt(search_data).endAt(search_data+'\uf8ff')
+      }else{
+        mode = "normal"
+        UIkit.toggle("#error").toggle();
+      }
+    }
+
+    if(mode =="high"){
+      var ref = firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').orderByChild('priority').startAt("高").endAt("高");
+      document.getElementById("search_cancel").style.visibility="visible";
+    }
+
+    if(mode =="middle"){
+      var ref = firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').orderByChild('priority').startAt("中").endAt("中");
+      document.getElementById("search_cancel").style.visibility="visible";
+    }
+
+    if(mode =="low"){
+      var ref = firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').orderByChild('priority').startAt("低").endAt("低");
+      document.getElementById("search_cancel").style.visibility="visible";
+    }
+
+    if(mode =="normal"){var ref = firebase.database().ref('/users/' + userId +'/'+ todo_list_title +'/todo')}
+
+    //テーブルデータ取得開始
+    ref.on('value', function(snapshot){
+      var tabledata = snapshot.val();
+      var table = document.getElementById("maintable");
+
+      //テーブルを初期化（空にする）
+      while(maintable.rows[ 1 ] ) maintable.deleteRow( -1 );
+
+      for(var item in tabledata){
+
+        var row = table.insertRow(-1);
+        row.id = item;
+
+        //列の色生成
+        if(tabledata[item]['priority'] == "高"){
+          var pos = document.getElementById(item);
+          pos.classList.add('uk-text-danger');
+        }else if(tabledata[item]['priority'] == "中"){
+          var pos = document.getElementById(item);
+          pos.classList.add('uk-text-warning');
+        }else if(tabledata[item]['priority'] == "低"){
+          var pos = document.getElementById(item);
+          pos.classList.add('uk-text-primary');
+        }
+
+        //列生成
+        var td1 = row.insertCell(-1);
+        var td2 = row.insertCell(-1);
+        var td3 = row.insertCell(-1);
+        var td4 = row.insertCell(-1);
+        var td5 = row.insertCell(-1);
+
+        //列にデータを挿入
+        td1.innerHTML ='<input class="uk-checkbox" type="checkbox" name='+item+'>';
+        document.getElementsByName(item)[0].checked = tabledata[item]['check'];
+        td2.innerHTML = tabledata[item]['todo_title'];
+        td3.innerHTML = tabledata[item]['date'];
+        td4.innerHTML = tabledata[item]['priority'];
+        td5.innerHTML ='<button type="button" uk-close name='+item+'></button>';
+
+
+        //ボタン生成
+        (function(item){
+          document.getElementsByName(item)[0].onchange = (function(){
+            if(document.getElementsByName(item)[0].checked){
+              firebase.database().ref('/users/'+ userId+'/'+ todo_list_title +'/todo/'+ item).update({
+                "check":true
+              })
+              main_table(mode);
+            }else{
+              firebase.database().ref('/users/'+ userId+'/'+ todo_list_title +'/todo/'+ item).update({
+                "check":false
+              })
+              main_table(mode);
+            }
+          })
+          document.getElementsByName(item)[1].onclick = (function(){
+            firebase.database().ref('/users/'+ userId +'/'+ todo_list_title +'/todo/'+ item).remove().then(function(){
+            UIkit.notification(tabledata[item]['todo_title'] + "を削除しました",{status:'primary',pos:'bottom-right'});
+            });
+            main_table(mode);
+          })
+        })(item);
+      };//for
+    });//firebase_function
+  };//end_main_table_function
+  main_table("normal")
+
+</script>
+
+
+<!--jsカレンダー-->
+<script>
+flatpickr(".flatpickr", {
+  minDate: "today"
+});
+</script>
+
+
+<!--ナビバーの動作-->
+<script>
+
+document.getElementById("add_todo").onclick = function (){
+
+  var title = document.getElementById('todo_title').value
+  var priority = document.getElementById('priority_select').value
+  var date = document.getElementById('todo_date_select').value
+
+  if(title){
+    UIkit.modal("#todo_modal").hide();
+    firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').push().set({
+      todo_title:title,
+      check:false,
+      priority:priority,
+      date:date
+    });
+    main_table("normal")
+  }else{
+    UIkit.toggle("#error").toggle();
+  }
+}
+
+document.getElementById("search").onclick = function(){main_table("search")}
+
+document.getElementById("high").onclick = function(){main_table("high")}
+
+document.getElementById("middle").onclick = function(){main_table("middle")}
+
+document.getElementById("low").onclick = function(){main_table("low")}
+
+
+
+
+
+</script>
+
+<!--検索終了ボタンの動作-->
+<script>
+  document.getElementById("search_cancel").style.visibility="hidden";
+  document.getElementById("search_cancel").onclick= function(){
+    document.getElementById("search_cancel").style.visibility="hidden";
+    main_table("normal")
+  }
+</script>
+
+
+
+
+
+<!--アラート一覧-->
+<div id='error' class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h3>エラー</h3>
+        <p>タイトルが入力されていません</p>
+    </div>
+</div>
+
+
+</body>
+</html>

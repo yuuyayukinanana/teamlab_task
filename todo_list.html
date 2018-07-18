@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2016 Google Inc.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo</title>
+
+
+  <script src="/__/firebase/5.0.0/firebase-app.js"></script>
+  <script src="/__/firebase/5.0.0/firebase-auth.js"></script>
+  <script src="/__/firebase/5.0.0/firebase-database.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <link rel="stylesheet" href="css/uikit.min.css" />
+  <script src="js/uikit.min.js"></script>
+  <script src="js/uikit-icons.min.js"></script>
+  <script>
+  var delete_id =""
+  var delete_title =""
+  var userId = "yuuya"
+  </script>
+</head>
+<body>
+
+<!--　ナビバー　-->
+  <div class="uk-section-primary uk-preserve-color">
+
+    <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+
+        <nav class="uk-navbar-container">
+            <div class="uk-container uk-container-expand">
+              <div class="uk-navbar-left">
+                  <a class="uk-navbar-item uk-logo">ToDoリスト</a>
+                  <div id="todo_button">
+
+
+                    <a class="uk-button uk-button" href="#todo_modal" uk-toggle>新規ToDoリスト</a>
+                    <div id="todo_modal" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body">
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                            <h2 class="uk-modal-title">新規ToDoリスト追加</h2>
+                            <p>タイトル</p>
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+                                <input class="uk-input" type="text" id=todo_list_title>
+                            </div>
+                            <div class="uk-margin">
+                              <p class="uk-text-right">
+                                  <button class="uk-button uk-button-default uk-modal-close" type="button">キャンセル</button>
+                                  <button id="add_todo" class="uk-button uk-button-primary"  type="button">追加</button>
+                              </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!--　ナビバー　-->
+
+<!--各アラート-->
+<script>
+
+  document.getElementById("add_todo").onclick = function() {
+    var title = document.getElementById('todo_list_title').value
+    var date = new Date()
+    var year = String(date.getFullYear())
+    var month = String(date.getMonth() + 1)
+    var day = String(date.getDate())
+    var fullday =year+"-"+month+"-"+day;
+    if(title){
+      UIkit.modal("#todo_modal").hide();
+      firebase.database().ref('/users/'+ userId).push().set({
+        list_title:title,
+        date:fullday
+      });
+    }else{
+      UIkit.toggle('#add_todo_errer').toggle();
+    }
+  }
+
+</script>
+<!--各アラート-->
+
+
+<!--テーブルビュー-->
+
+<div class="uk-container uk-overflow-auto">
+  <table class="uk-table uk-table-divider" id="maintable">
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>作成日</th>
+        </tr>
+    </thead>
+      <tbody>
+
+      </tbody>
+  </table>
+</div>
+<!--テーブルビュー-->
+<script>
+
+if( ('sessionStorage' in window) && (window.sessionStorage !== null) ) {
+    console.log("Available!");
+} else {
+    console.log("Not available...");
+}
+
+var ref = firebase.database().ref('/users/'+ userId);
+ref.on('value', function(snapshot){
+  var tabledata = snapshot.val();
+  var table = document.getElementById("maintable");
+  while(maintable.rows[ 1 ] ) maintable.deleteRow( -1 );
+  for(var item in tabledata){
+    var row = table.insertRow(-1);
+    var td1 = row.insertCell(-1);
+    var td2 = row.insertCell(-1);
+    var td3 = row.insertCell(-1);
+
+    td1.innerHTML ='<a class="uk-button" name ='+ item +'>' + tabledata[item]['list_title'] + '</a>';
+    td2.innerHTML = tabledata[item]['date'];
+    td3.innerHTML ='<button type="button" uk-close name='+item+'></button>';
+
+  (function(item){
+      document.getElementsByName(item)[0].onclick =(function(){
+        window.sessionStorage.setItem(['todo_list_id'],[item]);
+        window.sessionStorage.setItem(['user'],[userId]);
+        window.open('https://todo-a383d.firebaseapp.com/todo.html','_blank');
+      });
+      document.getElementsByName(item)[1].onclick = (function(){
+        UIkit.toggle('#list_delete_modal').toggle();
+        console.log("ok")
+        delete_id = item;
+        delete_title = tabledata[item]['list_title'];
+      });
+    })(item);
+  }
+});
+
+</script>
+
+<!--アラート一覧-->
+<div id="add_todo_errer" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h3>エラー</h3>
+        <p>タイトルが入力されていません</p>
+    </div>
+</div>
+
+<div id="list_delete_modal" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h3>ToDoリスト削除</h3>
+        <p>本当に削除しますか？？</p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">キャンセル</button>
+            <button id="delete_todo" class="uk-button uk-button-primary" type="button">削除</button>
+        </p>
+    </div>
+</div>
+
+<script>
+document.getElementById('delete_todo').onclick = function(){
+  firebase.database().ref('/users/'+ userId+'/'+delete_id).remove().then(function(){
+    UIkit.notification(delete_title + "を削除しました",{status:'primary',pos:'bottom-right'});
+  });
+}
+</script>
+<!--アラート一覧-->
+
+</body>
+</html>
