@@ -63,7 +63,19 @@
 <script>
 
   document.getElementById("add_todo").onclick = function() {
-    var title = document.getElementById('todo_list_title').value
+    var escapeJsHTML = function (str) {
+    return str
+            .replace(/\\/g, '\\\\')
+            .replace(/'/g, "\\'")
+            .replace(/"/g, '\\"')
+            .replace(/\//g, '\\/')
+            .replace(/</g, '\\x3c')
+            .replace(/>/g, '\\x3e')
+            .replace(/(0x0D)/g, '\r')
+            .replace(/(0x0A)/g, '\n')
+            .replace(/&/g, '&amp;');
+    };
+    var title = escapeJsHTML(document.getElementById('todo_list_title').value)
     var date = new Date()
     var year = String(date.getFullYear())
     var month = String(date.getMonth() + 1)
@@ -132,7 +144,7 @@ ref.on('value', function(snapshot){
 
     console.log(count)
     //列にデータを挿入
-    td1.innerHTML ='<a class="uk-button" name ='+ item +' style="font-size:15px;">' +　tabledata[item]['list_title'] + '</a>';
+    td1.innerHTML ='<a class="uk-button" name ='+ item +' style="font-size:15px;">' + tabledata[item]['list_title'] + '</a>';
     td2.innerHTML = tabledata[item]['date'];
 
     //チェック済みのものを数える
