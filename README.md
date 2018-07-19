@@ -1,6 +1,6 @@
 # teamlab_task(ToDoリスト)
 __Overview__  
-  このプログラムはweb上で動作する非常に扱いやすいUIデザインのToDoリストのプログラムである.  
+  このプログラムはweb上で動作する非常に扱いやすいUIデザインのToDoリストのプログラムである。  
   特徴として  
   ・UIKIT3を使った現代的なモダンなUIデザイン  
   ・画面遷移の少ない非常にスマートフォンのアプリケーションのような操作  
@@ -30,17 +30,13 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 ## Install
 ・Firebaseのhostingを作成する。   
   __1.コマンドラインを開き、npmでFirebase CLIをインストールする。__    
-  `npm install -g firebase-tools`
-  
-  
+  `npm install -g firebase-tools`  
   
  __ 2.Firebaseにログインする。__ 　　
-   `firebase  login`
-   
-   
+   `firebase  login`  
    
  __ 3.インストールが完了したら、アプリを初期化する。__   
-  `firebase init`
+  `firebase init`  
   
   DatabaseとHostingにチェックをつけ、Enterを押す。
   
@@ -69,45 +65,43 @@ https://todo-a383d.firebaseapp.com/todo_list.html
  
  シングルページでは無いのでNを入力してEnterを押す。
  
-    ? Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N
-
-
- 
- 
+    ? Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N  
   
-  __4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。__  
+  __4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。__    
     
     
-  __5. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)__  
+  __5. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)__   
   
-  todo.html
+  todo.html  
     
     <a class="uk-navbar-item uk-logo uk-active" href="https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo_list.html">ToDoリスト</a> 
     
     <a class="uk-button" href="https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo_list.html" onclick="javascript:window.history.back(-1);return false;">リストに戻る</a>
     
     
-  todo_list.html
+  todo_list.html  
   
     <a class="uk-navbar-item uk-logo uk-active" href="https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo_list.html">ToDoリスト</a>  
     
-    window.location.href = 'https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo.html';
+    window.location.href = 'https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo.html';  
   
   
+  __6.Databaseのルールを変更.__  
+  自由に書き換えられるようにdatabase.rules.jsonのコードを以下のように書き換える。
   
+    {
+      "rules": {
+        ".read": "auth != true",
+        ".write": "auth != true"
+      }
+    }
   
-  
-  __6.webサイトをデプロイする.__
-  `firebase deploy`
+  __7.webサイトをデプロイする.__  
+  `firebase deploy`  
  
-　
-
-## Contribution
 
 ## Licence
 
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
-## Author
 
-[tcnksm](https://github.com/tcnksm)
