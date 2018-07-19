@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<!--
-Copyright (c) 2016 Google Inc.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 <html>
 <head>
   <meta charset=utf-8 />
@@ -57,7 +45,7 @@ limitations under the License.
         <nav class="uk-navbar-container">
             <div class="uk-container uk-container-expand">
               <div class="uk-navbar-left">
-                  <a class="uk-navbar-item uk-logo">ToDoリスト</a>
+                  <a class="uk-navbar-item uk-logo uk-active" href="https://自分のプロジェクトID.firebaseapp.com/todo_list.html">ToDoリスト</a>
                   <div id="todo_button">
 
   　　　　           <!--新規todoボタン-->
@@ -123,10 +111,14 @@ limitations under the License.
 
                     <a class="uk-button" id="middle">中</a>
 
-                    <a class="uk-button" id="low">底</a>
+                    <a class="uk-button" id="low">低</a>
+
+                    <a class="uk-button" id="after_check">チェック済み</a>
+
+                    <a class="uk-button" id="before_check">未チェック</a>
 
                     <!--todolistへバックするボタン-->
-                    <a class="uk-button" href="https://todo-a383d.firebaseapp.com/todo_list.html" onclick="javascript:window.history.back(-1);return false;">リストに戻る</a>
+                    <a class="uk-button" href="https://自分のプロジェクトID.firebaseapp.com/todo_list.html" onclick="javascript:window.history.back(-1);return false;">リストに戻る</a>
                 </div>
             </div>
         </nav>
@@ -161,6 +153,7 @@ limitations under the License.
         <tr>
             <th></th>
             <th>タイトル</th>
+            <th>作成日</th>
             <th>期限</th>
             <th>重要度</th>
         </tr>
@@ -192,6 +185,7 @@ limitations under the License.
       }else{
         mode = "normal"
         UIkit.toggle("#error").toggle();
+        document.getElementById("error_code").innerHTML = "タイトルが入力されていません"
       }
     }
 
@@ -210,11 +204,27 @@ limitations under the License.
       document.getElementById("search_cancel").style.visibility="visible";
     }
 
+    if(mode =="after_check"){
+      var ref = firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').orderByChild('check').startAt(true).endAt(true);
+      document.getElementById("search_cancel").style.visibility="visible";
+    }
+
+    if(mode =="before_check"){
+      var ref = firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').orderByChild('check').startAt(false).endAt(false);
+      document.getElementById("search_cancel").style.visibility="visible";
+    }
+
     if(mode =="normal"){var ref = firebase.database().ref('/users/' + userId +'/'+ todo_list_title +'/todo')}
 
     //テーブルデータ取得開始
     ref.on('value', function(snapshot){
       var tabledata = snapshot.val();
+      console.log(tabledata)
+      if((mode == "search" || mode == "high" || mode == "middle" || mode == "low" || mode == "after_check" || mode == "before_check") && tabledata == null){
+        document.getElementById("error_code").innerHTML = "検索対象が一件もありません"
+        UIkit.toggle("#error").toggle();
+      }
+
       var table = document.getElementById("maintable");
 
       //テーブルを初期化（空にする）
@@ -243,14 +253,15 @@ limitations under the License.
         var td3 = row.insertCell(-1);
         var td4 = row.insertCell(-1);
         var td5 = row.insertCell(-1);
-
+        var td6 = row.insertCell(-1);
         //列にデータを挿入
         td1.innerHTML ='<input class="uk-checkbox" type="checkbox" name='+item+'>';
         document.getElementsByName(item)[0].checked = tabledata[item]['check'];
         td2.innerHTML = tabledata[item]['todo_title'];
-        td3.innerHTML = tabledata[item]['date'];
-        td4.innerHTML = tabledata[item]['priority'];
-        td5.innerHTML ='<button type="button" uk-close name='+item+'></button>';
+        td3.innerHTML = tabledata[item]['create_date'];
+        td4.innerHTML = tabledata[item]['date'];
+        td5.innerHTML = tabledata[item]['priority'];
+        td6.innerHTML ='<button type="button" uk-close name='+item+'></button>';
 
 
         //ボタン生成
@@ -297,19 +308,32 @@ flatpickr(".flatpickr", {
 document.getElementById("add_todo").onclick = function (){
 
   var title = document.getElementById('todo_title').value
-  var priority = document.getElementById('priority_select').value
-  var date = document.getElementById('todo_date_select').value
 
+  console.log(title.length)
   if(title){
-    UIkit.modal("#todo_modal").hide();
-    firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').push().set({
-      todo_title:title,
-      check:false,
-      priority:priority,
-      date:date
-    });
-    main_table("normal")
+    if(title.length <= 30){
+      UIkit.modal("#todo_modal").hide();
+      var priority = document.getElementById('priority_select').value
+      var due_date = document.getElementById('todo_date_select').value
+      var date = new Date()
+      var year = String(date.getFullYear())
+      var month = String(date.getMonth() + 1)
+      var day = String(date.getDate())
+      var fullday = year+"-"+month+"-"+day;
+      firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').push().set({
+        todo_title:title,
+        check:false,
+        priority:priority,
+        date:due_date,
+        create_date:fullday
+      });
+      main_table("normal")
+    }else{
+      document.getElementById("error_code").innerHTML = "タイトルの文字数は３０文字以上のタイトルはつけられません"
+      UIkit.toggle("#error").toggle();
+    }
   }else{
+    document.getElementById("error_code").innerHTML = "タイトルが入力されていません"
     UIkit.toggle("#error").toggle();
   }
 }
@@ -321,6 +345,10 @@ document.getElementById("high").onclick = function(){main_table("high")}
 document.getElementById("middle").onclick = function(){main_table("middle")}
 
 document.getElementById("low").onclick = function(){main_table("low")}
+
+document.getElementById("after_check").onclick = function(){main_table("after_check")}
+
+document.getElementById("before_check").onclick = function(){main_table("before_check")}
 
 
 
@@ -346,7 +374,7 @@ document.getElementById("low").onclick = function(){main_table("low")}
     <div class="uk-modal-dialog uk-modal-body uk-margin">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <h3>エラー</h3>
-        <p>タイトルが入力されていません</p>
+        <p id="error_code"></p>
     </div>
 </div>
 

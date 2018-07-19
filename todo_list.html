@@ -1,31 +1,20 @@
 <!DOCTYPE html>
-<!--
-Copyright (c) 2016 Google Inc.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 <html>
 <head>
   <meta charset=utf-8 />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ToDo</title>
-
-
+  <!--firebase-->
   <script src="/__/firebase/5.0.0/firebase-app.js"></script>
   <script src="/__/firebase/5.0.0/firebase-auth.js"></script>
   <script src="/__/firebase/5.0.0/firebase-database.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <!--uilit3-->
   <link rel="stylesheet" href="css/uikit.min.css" />
   <script src="js/uikit.min.js"></script>
   <script src="js/uikit-icons.min.js"></script>
   <script>
+  //必要な変数を生成
   var delete_id =""
   var delete_title =""
   var userId = "yuuya"
@@ -41,10 +30,10 @@ limitations under the License.
         <nav class="uk-navbar-container">
             <div class="uk-container uk-container-expand">
               <div class="uk-navbar-left">
-                  <a class="uk-navbar-item uk-logo">ToDoリスト</a>
+                  <a class="uk-navbar-item uk-logo uk-active" href="https://自分のプロジェクトID.firebaseapp.com/todo_list.html">ToDoリスト</a>
                   <div id="todo_button">
 
-
+                    <!--新規ToDo追加ボタン-->
                     <a class="uk-button uk-button" href="#todo_modal" uk-toggle>新規ToDoリスト</a>
                     <div id="todo_modal" uk-modal>
                         <div class="uk-modal-dialog uk-modal-body">
@@ -68,9 +57,9 @@ limitations under the License.
         </nav>
     </div>
 </div>
-<!--　ナビバー　-->
 
-<!--各アラート-->
+
+<!--ToDoリスト追加の動作-->
 <script>
 
   document.getElementById("add_todo").onclick = function() {
@@ -81,18 +70,24 @@ limitations under the License.
     var day = String(date.getDate())
     var fullday =year+"-"+month+"-"+day;
     if(title){
-      UIkit.modal("#todo_modal").hide();
-      firebase.database().ref('/users/'+ userId).push().set({
-        list_title:title,
-        date:fullday
-      });
+      if(title.length <= 30){
+        UIkit.modal("#todo_modal").hide();
+        firebase.database().ref('/users/'+ userId).push().set({
+          list_title:title,
+          date:fullday
+        });
+      }else{
+        document.getElementById("error_code").innerHTML = "タイトルの文字数は３０文字以上のタイトルはつけられません"
+        UIkit.toggle("#add_todo_errer").toggle();
+      }
     }else{
-      UIkit.toggle('#add_todo_errer').toggle();
+      document.getElementById("add_todo_errer").innerHTML = "タイトルが入力されていません"
+      UIkit.toggle("#add_todo_errer").toggle();
     }
   }
 
 </script>
-<!--各アラート-->
+
 
 
 <!--テーブルビュー-->
@@ -103,6 +98,7 @@ limitations under the License.
         <tr>
             <th>タイトル</th>
             <th>作成日</th>
+            <th>タスク数</th>
         </tr>
     </thead>
       <tbody>
@@ -112,33 +108,47 @@ limitations under the License.
 </div>
 <!--テーブルビュー-->
 <script>
-
-if( ('sessionStorage' in window) && (window.sessionStorage !== null) ) {
-    console.log("Available!");
-} else {
-    console.log("Not available...");
-}
-
+//テーブル生成
 var ref = firebase.database().ref('/users/'+ userId);
 ref.on('value', function(snapshot){
   var tabledata = snapshot.val();
   var table = document.getElementById("maintable");
   while(maintable.rows[ 1 ] ) maintable.deleteRow( -1 );
   for(var item in tabledata){
+    //列を生成
     var row = table.insertRow(-1);
     var td1 = row.insertCell(-1);
     var td2 = row.insertCell(-1);
     var td3 = row.insertCell(-1);
+    var td4 = row.insertCell(-1);
 
-    td1.innerHTML ='<a class="uk-button" name ='+ item +'>' + tabledata[item]['list_title'] + '</a>';
+    var count = 0;
+    var in_data = tabledata[item]['todo']
+    for(var id_data in in_data){
+      if(in_data[id_data]['check'] == true){
+        count = count + 1;
+      }
+    }
+
+    console.log(count)
+    //列にデータを挿入
+    td1.innerHTML ='<a class="uk-button" name ='+ item +' style="font-size:15px;">' +　tabledata[item]['list_title'] + '</a>';
     td2.innerHTML = tabledata[item]['date'];
-    td3.innerHTML ='<button type="button" uk-close name='+item+'></button>';
 
+    //チェック済みのものを数える
+    if(tabledata[item]['todo'] != undefined){
+      td3.innerHTML = Object.keys(tabledata[item]['todo']).length + "個中" + count +"個がチェック済み"
+    }else{
+      td3.innerHTML = "ToDoがありません"
+    }
+    td4.innerHTML ='<button type="button" uk-close name='+item+'></button>';
+
+  //ボタン生成
   (function(item){
       document.getElementsByName(item)[0].onclick =(function(){
         window.sessionStorage.setItem(['todo_list_id'],[item]);
         window.sessionStorage.setItem(['user'],[userId]);
-        window.open('https://todo-a383d.firebaseapp.com/todo.html','_blank');
+        window.location.href = 'https://自分のプロジェクトID.firebaseapp.com/todo.html';
       });
       document.getElementsByName(item)[1].onclick = (function(){
         UIkit.toggle('#list_delete_modal').toggle();
@@ -152,12 +162,12 @@ ref.on('value', function(snapshot){
 
 </script>
 
-<!--アラート一覧-->
+<!--アラート本体-->
 <div id="add_todo_errer" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <h3>エラー</h3>
-        <p>タイトルが入力されていません</p>
+        <p id="error_code"></p>
     </div>
 </div>
 
@@ -180,7 +190,6 @@ document.getElementById('delete_todo').onclick = function(){
   });
 }
 </script>
-<!--アラート一覧-->
 
 </body>
 </html>
