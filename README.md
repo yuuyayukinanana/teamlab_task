@@ -16,7 +16,7 @@ __Overview__
 ## Demo
 __デモページ__  
 https://todo-a383d.firebaseapp.com/todo_list.html  
-動作確認済  
+動作確認済(２０１８年７月２０日現在の最新バージョンのもの)  
 safari  
 clrome  
 firefox  
