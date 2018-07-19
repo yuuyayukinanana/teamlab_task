@@ -25,6 +25,14 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   
   
 ## Usage
+__・ToDoリストの作成__
+__・ToDoリストへ移動__
+__・ToDoリストの削除__
+__・新規ToDoを作成__
+__・ToDoを完了させる__
+__・ToDoを削除__
+__・検索__
+
   
   
 ## Install
@@ -101,7 +109,6 @@ https://todo-a383d.firebaseapp.com/todo_list.html
  
 
 ## Licence
-
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+This project is licensed under the terms of the MIT license.
 
 
