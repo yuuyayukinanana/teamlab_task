@@ -34,27 +34,37 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   2.Firebaseにログインする。　　
    `firebase  login`
    
-  3.インストールが完了したら、アプリを初期化します。  
+  3.インストールが完了したら、アプリを初期化する。  
   `firebase init`
-  ホスティングを
-  ? Which Firebase CLI features do you want to setup for this folder? Press Space 
-to select features, then Enter to confirm your choices. 
-◉ Database: Deploy Firebase Realtime Database Rules
- ◯ Firestore: Deploy rules and create indexes for Firestore
- ◯ Functions: Configure and deploy Cloud Functions
-❯◉ Hosting: Configure and deploy Firebase Hosting sites
- ◯ Storage: Deploy Cloud Storage security rules
- 
-? Select a default Firebase project for this directory: 
-  [don't setup a default project] 
-❯ todo (todo-a383d) 
-  [create a new project] 
   
- ? What file should be used for Database Rules? (database.rules.json) 
+  DatabaseとHostingにチェックをつけ、Enterを押す。
+  
+    ? Which Firebase CLI features do you want to setup for this folder? Press Space 
+      to select features, then Enter to confirm your choices. 
+      ◉ Database: Deploy Firebase Realtime Database Rules
+      ◯ Firestore: Deploy rules and create indexes for Firestore
+      ◯ Functions: Configure and deploy Cloud Functions
+     ❯◉ Hosting: Configure and deploy Firebase Hosting sites
+      ◯ Storage: Deploy Cloud Storage security rules
+
+  作成したプロジェクトを選択する。
+
+    ? Select a default Firebase project for this directory: 
+      [don't setup a default project] 
+    ❯ 作成したプロジェクト (プロジェクトID) 
+      [create a new project] 
+  
+  データベースのルールを記述するjsonファイルを作成するのでそのままEnterを押す。
+  
+    ? What file should be used for Database Rules? (database.rules.json) 
  
- ? What do you want to use as your public directory? (public) 
+  publicディレクトリを作成するのでそのままEnterを押す。
  
-? Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N
+    ? What do you want to use as your public directory? (public) 
+ 
+ シングルページでは無いのでNを入力してEnterを押す。
+ 
+    ? Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N
 
 
  
