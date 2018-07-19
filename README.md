@@ -19,10 +19,10 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 
 ## Requirement
 ・このプログラムはfirebaseのhostingで一部パラメータを管理しているため、
-  hosting上での動作が必須。
+  hosting上での動作が必須。  
   https://firebase.google.com/products/hosting/
 
-・UIデザインにUIkit3を使用（但し、レポジトリにコンパイルされたuikit3が入っている[2018年7月19日現在のバージョンのもの]）
+・UIデザインにUIkit3を使用（但し、レポジトリにコンパイルされたuikit3が入っている(2018年7月19日現在のバージョン)）  
   https://getuikit.com
 
 
