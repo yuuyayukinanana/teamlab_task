@@ -8,13 +8,18 @@ __Overview__
   が挙げられる。
 
 ## Description
-  特徴として、UIデザインにこだわり、視覚的に操作しやすいデザインを設計。  
+  UIデザインにこだわり、視覚的に操作しやすいデザインを設計。  
   ToDoに重要度の項目をつけることによって、重要度別にToDoの色が変化し、素早く重要なToDoを見分けられる。  
   検索にはキーワード検索のほか、重要度別、チェック済み、未チェック別に分類でき、調べやすい。  
+  ToDoリスト、ToDoは一意なキーで管理されているため、同じ名前のデータを作成可能。
   
 ## Demo
 __デモページ__  
 https://todo-a383d.firebaseapp.com/todo_list.html
+動作確認済
+safari 
+clrome
+firefox
   
   
 ## Requirement
@@ -106,6 +111,8 @@ __・検索__
   
   
 ## Install
+・Firebaseでプロジェクトを立ち上げる。
+  プロジェクト名を入力、地域、各種チェック欄に同意してチェックし、プロジェクトを作成する。
 ・Firebaseのhostingを作成する。   
   __1.コマンドラインを開き、npmでFirebase CLIをインストールする。__    
   `npm install -g firebase-tools`  
@@ -145,7 +152,7 @@ __・検索__
  
     ? Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N  
   
-  __4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。__    
+  __4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlとcss,jsディレクトリを追加します。__    
     
     
   __5. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)__   
