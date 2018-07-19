@@ -35,7 +35,7 @@ firefox
   https://getuikit.com
 
 ・データベースがNoSQLのため、入力フォームのサニタイジングは行なっていない。  
-
+  (データベースのエクスポートデータはリポジトリにあるtodo-a383d-export.jsonに記載)
 
 
    仕様言語  
