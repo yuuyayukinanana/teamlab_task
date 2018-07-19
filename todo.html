@@ -171,15 +171,12 @@
 <!--テーブルビューscript-->
 <script>
   function main_table(mode){
-    console.log(mode)
 
     //モード判定
     if(mode =="search"){
-      console.log("searchok")
       UIkit.modal("#search_modal").hide();
       document.getElementById("search_cancel").style.visibility="visible";
       var search_data = document.getElementById('search_data').value
-      console.log(search_data)
       if(search_data){
         var ref = firebase.database().ref('/users/'+ userId +'/'+ todo_list_title+'/todo').orderByChild('todo_title').startAt(search_data).endAt(search_data+'\uf8ff')
       }else{
@@ -217,12 +214,13 @@
     if(mode =="normal"){var ref = firebase.database().ref('/users/' + userId +'/'+ todo_list_title +'/todo')}
 
     //テーブルデータ取得開始
-    ref.on('value', function(snapshot){
+    ref.once('value', function(snapshot){
       var tabledata = snapshot.val();
-      console.log(tabledata)
-      if((mode == "search" || mode == "high" || mode == "middle" || mode == "low" || mode == "after_check" || mode == "before_check") && tabledata == null){
-        document.getElementById("error_code").innerHTML = "検索対象が一件もありません"
-        UIkit.toggle("#error").toggle();
+      if(mode == "search" || mode == "high" || mode == "middle" || mode == "low" || mode == "after_check" || mode == "before_check"){
+        if(tabledata == null){
+          document.getElementById("error_code").innerHTML = "検索対象が一件もありません"
+          UIkit.toggle("#error").toggle();
+        }
       }
 
       var table = document.getElementById("maintable");
@@ -271,12 +269,12 @@
               firebase.database().ref('/users/'+ userId+'/'+ todo_list_title +'/todo/'+ item).update({
                 "check":true
               })
-              main_table(mode);
+              main_table(mode)
             }else{
               firebase.database().ref('/users/'+ userId+'/'+ todo_list_title +'/todo/'+ item).update({
                 "check":false
               })
-              main_table(mode);
+              main_table(mode)
             }
           })
           document.getElementsByName(item)[1].onclick = (function(){
