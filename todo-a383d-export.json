@@ -1,0 +1,53 @@
+{
+  "users" : {
+    "yuuya" : {
+      "-LHnTTHjmND8aCFEoUEQ" : {
+        "date" : "2018-7-20",
+        "list_title" : "サンプル",
+        "todo" : {
+          "-LHnTo8jnb_defp2G8gT" : {
+            "check" : false,
+            "create_date" : "2018-7-20",
+            "date" : "",
+            "priority" : "中",
+            "todo_title" : "サンプル３"
+          },
+          "-LHnTqpkJz4qhMVAaQeP" : {
+            "check" : false,
+            "create_date" : "2018-7-20",
+            "date" : "",
+            "priority" : "低",
+            "todo_title" : "サンプル４"
+          },
+          "-LHnTtj8qdDPDJSdIIsr" : {
+            "check" : false,
+            "create_date" : "2018-7-20",
+            "date" : "2018-07-27",
+            "priority" : "",
+            "todo_title" : "サンプル５"
+          }
+        }
+      },
+      "-LHnqF6JAOPWPc3LaW9k" : {
+        "date" : "2018-7-20",
+        "list_title" : "サンプル２",
+        "todo" : {
+          "-LHnqJixaBS1FvFcdOzd" : {
+            "check" : false,
+            "create_date" : "2018-7-20",
+            "date" : "",
+            "priority" : "",
+            "todo_title" : "サンプル２＿２"
+          },
+          "-LHnqKx1wl-sIdkFtD5q" : {
+            "check" : false,
+            "create_date" : "2018-7-20",
+            "date" : "",
+            "priority" : "",
+            "todo_title" : "サンプル２＿１"
+          }
+        }
+      }
+    }
+  }
+}
