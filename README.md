@@ -62,7 +62,7 @@ __・ToDoリストの作成__
 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.24.png)
 
-#### 作成するToDoリストのタイトルを入力（３０文字以内）して追加をクリック。
+#### 作成するToDoリストのタイトルを入力（３０文字以内、英字は大文字のみ）して追加をクリック。
 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.56.png)
 
@@ -88,7 +88,7 @@ __・ToDoリストの削除__
 __・新規ToDoを作成__  
 #### 左上にある新規TODOをクリックする。 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
-#### タイトルを入力（３０文字以内）し、オプションとして重要度、期限を指定できる。
+#### タイトルを入力（３０文字以内、英字は大文字のみ）し、オプションとして重要度、期限を指定できる。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.28.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.37.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.47.png)
