@@ -27,13 +27,18 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 ## Usage
 __・ToDoリストの作成__    
 
-#### 画面の左上に「新規ToDoリスト」をクリック  
+#### 画面の左上に「新規ToDoリスト」をクリック。  
 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.24.png)
-###
+
+#### 作成するToDoリストのタイトルを入力（３０文字以内）して追加を押す。
+
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.56.png)
+
+#### ToDoリストが作成され、追加される。
+
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.06.png)
-![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
+
 
 __・ToDoリストへ移動__  
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
