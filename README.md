@@ -40,9 +40,9 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   
   todo.html
     
-    <a class="uk-navbar-item uk-logo uk-active" href="https://todo-a383d.firebaseapp.com/todo_list.html">ToDoリスト</a> 
+    <a class="uk-navbar-item uk-logo uk-active" href="https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo_list.html">ToDoリスト</a> 
     
-    <a class="uk-button" href="https://todo-a383d.firebaseapp.com/todo_list.html" onclick="javascript:window.history.back(-1);return false;">リストに戻る</a>
+    <a class="uk-button" href="https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo_list.html" onclick="javascript:window.history.back(-1);return false;">リストに戻る</a>
     
     
   todo_list.html
