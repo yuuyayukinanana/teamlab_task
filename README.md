@@ -36,7 +36,7 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   
   3.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。  
   
-  4. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。  
+  4. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)  
   
   todo.html
     
@@ -52,7 +52,8 @@ https://todo-a383d.firebaseapp.com/todo_list.html
     window.location.href = 'https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo.html';
   
   
-  3.`firebase deploy`
+  3.webサイトをデプロイする.
+  `firebase deploy`
  
 　
 
