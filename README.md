@@ -18,16 +18,19 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 ## VS. 
 
 ## Requirement
-このプログラムはfirebaseのhostingで一部パラメータを管理しているため、
-hosting上での動作が必須。
-URL
-https://firebase.google.com/products/hosting/
-UIデザインにUIkit3を使用（但し、レポジトリにコンパイルされたuikit3が入っている[2018年7月19日現在のバージョンのもの]）
-https://getuikit.com
+・このプログラムはfirebaseのhostingで一部パラメータを管理しているため、
+  hosting上での動作が必須。
+  https://firebase.google.com/products/hosting/
+
+・UIデザインにUIkit3を使用（但し、レポジトリにコンパイルされたuikit3が入っている[2018年7月19日現在のバージョンのもの]）
+  https://getuikit.com
+
 
 ## Usage
 
 ## Install
+・Firebaseのhostingを作成する
+  1.`npm install -g firebase-tools`
 
 ## Contribution
 
