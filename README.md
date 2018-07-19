@@ -29,6 +29,26 @@ firefox
 
 ・UIデザインにUIkit3を使用（但し、レポジトリにコンパイルされたuikit3が入っている(2018年7月19日現在のバージョン)）  
   https://getuikit.com
+
+・データベースがNoSQLのため、入力フォームのサニタイジングは行なっていない。  
+
+
+
+   仕様言語  
+   ・html  
+   ・JavaScript  
+   
+   フレームワーク
+   ・UIkit3  
+   
+   ライブラリ
+   ・Flatpickr
+   
+   データベース    
+   ・Firebase RealtimeDatabase(NoSQL)
+   
+   Hosting
+   ・Firebase Hosting
   
   
 ## Usage
