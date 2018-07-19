@@ -15,11 +15,11 @@ __Overview__
   
 ## Demo
 __デモページ__  
-https://todo-a383d.firebaseapp.com/todo_list.html
-動作確認済
-safari 
-clrome
-firefox
+https://todo-a383d.firebaseapp.com/todo_list.html  
+動作確認済  
+safari  
+clrome  
+firefox  
   
   
 ## Requirement
