@@ -82,17 +82,17 @@ __・ToDoを削除__
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.33.19.png)
 
 __・検索__  
-#### 左上の検索をクリック
+#### 左上の検索をクリックし、検索したいタイトルを入力し、検索をクリック。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.29.png)
-#### 
+#### 検索結果が表示される。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.35.png)
-#### 
+#### 上の高、中、低をクリックするそれぞれの重要度に指定してあるToDoが検索される。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.41.png)
 #### 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.47.png)
 #### 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.53.png)
-#### 
+#### 下記のようなチェックされているものとされていないものを分類したい場合、上のチェック済み、未チェックをクリックすると分類される。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.10.png)
 #### 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.17.png)
