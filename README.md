@@ -37,6 +37,27 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   3.インストールが完了したら、アプリを初期化します。  
   `firebase init`
   ホスティングを
+  ? Which Firebase CLI features do you want to setup for this folder? Press Space 
+to select features, then Enter to confirm your choices. 
+◉ Database: Deploy Firebase Realtime Database Rules
+ ◯ Firestore: Deploy rules and create indexes for Firestore
+ ◯ Functions: Configure and deploy Cloud Functions
+❯◉ Hosting: Configure and deploy Firebase Hosting sites
+ ◯ Storage: Deploy Cloud Storage security rules
+ 
+? Select a default Firebase project for this directory: 
+  [don't setup a default project] 
+❯ todo (todo-a383d) 
+  [create a new project] 
+  
+ ? What file should be used for Database Rules? (database.rules.json) 
+ 
+ ? What do you want to use as your public directory? (public) 
+ 
+? Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N
+
+
+ 
   
   4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。  
   
