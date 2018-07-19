@@ -15,20 +15,44 @@ __Overview__
   
 ## Demo
 __デモページ__  
-https://todo-a383d.firebaseapp.com/todo_list.html
-動作確認済
-safari 
-clrome
-firefox
+https://todo-a383d.firebaseapp.com/todo_list.html  
+動作確認済(２０１８年７月２０日現在の最新バージョンのもの)  
+safari  
+clrome  
+firefox  
   
   
 ## Requirement
+ 全体の設計、構成は、Firebaseの機能を主に活用し、HostingでWebサイトをデプロイ、Realtime Databaseでデータを管理をしており、    
+ 入力、出力処理、データの受け渡しの処理は、htmlに埋め込んだJavaScriptで処理をしている。  
+ UIはUIkit3を使用してデザイン。   
+ 
 ・このプログラムはfirebaseのhostingで一部パラメータを管理しているため、
   hosting上での動作が必須。  
   https://firebase.google.com/products/hosting/
 
 ・UIデザインにUIkit3を使用（但し、レポジトリにコンパイルされたuikit3が入っている(2018年7月19日現在のバージョン)）  
   https://getuikit.com
+ 
+・データベースのエクスポートデータはリポジトリにあるtodo-a383d-export.jsonに記載
+
+
+
+   仕様言語  
+   ・HTML  
+   ・JavaScript  
+   
+   フレームワーク  
+   ・UIkit3  
+   
+   ライブラリ  
+   ・Flatpickr
+   
+   データベース    
+   ・Firebase RealtimeDatabase(NoSQL)
+   
+   Hosting  
+   ・Firebase Hosting
   
   
 ## Usage
@@ -95,15 +119,11 @@ __・検索__
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.35.png)
 #### 上の高、中、低をクリックするそれぞれの重要度に指定してあるToDoが検索される。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.41.png)
-#### 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.47.png)
-#### 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.53.png)
 #### 下記のようなチェックされているものとされていないものを分類したい場合、上のチェック済み、未チェックをクリックすると分類される。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.10.png)
-#### 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.17.png)
-#### 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.24.png)
 
 
