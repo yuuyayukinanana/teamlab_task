@@ -23,6 +23,10 @@ firefox
   
   
 ## Requirement
+ 全体の設計、構成は、Firebaseの機能を主に活用し、HostingでWebサイトをデプロイ、Realtime Databaseでデータを管理をしている。    
+ UIはUIkit3を使用してデザインをしている。 
+ 入力、出力処理、データの受け渡しの処理は、htmlに埋め込んだJavaScriptで処理をしている。
+
 ・このプログラムはfirebaseのhostingで一部パラメータを管理しているため、
   hosting上での動作が必須。  
   https://firebase.google.com/products/hosting/
@@ -47,7 +51,7 @@ firefox
    データベース    
    ・Firebase RealtimeDatabase(NoSQL)
    
-   Hosting
+   Hosting  
    ・Firebase Hosting
   
   
