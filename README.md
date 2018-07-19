@@ -8,13 +8,13 @@ __Overview__
   が挙げられる。
 
 ## Description
-
-
+  
+  
 ## Demo
 __デモページ__  
 https://todo-a383d.firebaseapp.com/todo_list.html
-
-
+  
+  
 ## Requirement
 ・このプログラムはfirebaseのhostingで一部パラメータを管理しているため、
   hosting上での動作が必須。  
@@ -22,10 +22,11 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 
 ・UIデザインにUIkit3を使用（但し、レポジトリにコンパイルされたuikit3が入っている(2018年7月19日現在のバージョン)）  
   https://getuikit.com
-
-
+  
+  
 ## Usage
-
+  
+  
 ## Install
 ・Firebaseのhostingを作成する。   
   __1.コマンドラインを開き、npmでFirebase CLIをインストールする。__    
@@ -75,10 +76,8 @@ https://todo-a383d.firebaseapp.com/todo_list.html
  
   
   __4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。__  
-  
-  
-  
-  
+    
+    
   __5. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)__  
   
   todo.html
