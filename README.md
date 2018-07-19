@@ -28,12 +28,24 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 ## Usage
 
 ## Install
-・Firebaseのhostingを作成する  
-　1.`npm install -g firebase-tools`
+・Firebaseのhostingを作成する 
+  1.コマンドラインを開き、npmでFirebase CLIをインストールします。  
+  `npm install -g firebase-tools`
   
-　1.`npm install -g firebase-tools`
+  2.インストールが完了したら、アプリを初期化します。  
+  `firebase init`
+  
+  3.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。  
+  
+  4. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。  
+    todo.html
+    
+    todo_list.html
+  
+  
+  3.`firebase deploy`
  
-　1.`npm install -g firebase-tools`
+　
 
 ## Contribution
 
