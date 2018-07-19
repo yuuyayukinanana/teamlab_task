@@ -29,7 +29,11 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 
 ## Install
 ・Firebaseのhostingを作成する  
-  1.`npm install -g firebase-tools`
+　1.`npm install -g firebase-tools`
+  
+　1.`npm install -g firebase-tools`
+ 
+　1.`npm install -g firebase-tools`
 
 ## Contribution
 
