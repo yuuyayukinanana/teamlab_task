@@ -8,7 +8,9 @@ __Overview__
   が挙げられる。
 
 ## Description
-  
+  特徴として、UIデザインにこだわり、視覚的に操作しやすいデザインを設計。  
+  ToDoに重要度の項目をつけることによって、重要度別にToDoの色が変化し、素早く重要なToDoを見分けられる。  
+  検索にはキーワード検索のほか、重要度別、チェック済み、未チェック別に分類でき、調べやすい。  
   
 ## Demo
 __デモページ__  
@@ -57,7 +59,7 @@ __・ToDoリストの削除__
 __・新規ToDoを作成__  
 #### 左上にある新規TODOをクリックする。 
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
-#### タイトルを入力し、オプションとして重要度、期限を指定できる。
+#### タイトルを入力（３０文字以内）し、オプションとして重要度、期限を指定できる。
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.28.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.37.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.47.png)
