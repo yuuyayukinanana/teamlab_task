@@ -25,15 +25,16 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   
   
 ## Usage
-__・ToDoリストの作成__  
+__・ToDoリストの作成__    
+
+#### 画面の左上に「新規ToDoリスト」をクリック  
+
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.24.png)
+###
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.56.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.06.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
-![Alt text]()
-![Alt text]()
-![Alt text]()
-![Alt text]()
+
 __・ToDoリストへ移動__  
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.00.png)
@@ -50,11 +51,9 @@ __・新規ToDoを作成__
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.47.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.59.51.png)
 
-
 __・ToDoを完了させる__  
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.32.42.png)
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.04.15.png)
-
 
 __・ToDoを削除__  
 ![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.32.42.png)
