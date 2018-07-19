@@ -31,8 +31,12 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   __1.コマンドラインを開き、npmでFirebase CLIをインストールする。__    
   `npm install -g firebase-tools`
   
+  
+  
  __ 2.Firebaseにログインする。__ 　　
    `firebase  login`
+   
+   
    
  __ 3.インストールが完了したら、アプリを初期化する。__   
   `firebase init`
@@ -68,8 +72,12 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 
 
  
+ 
   
   __4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。__  
+  
+  
+  
   
   __5. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)__  
   
@@ -85,6 +93,9 @@ https://todo-a383d.firebaseapp.com/todo_list.html
     <a class="uk-navbar-item uk-logo uk-active" href="https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo_list.html">ToDoリスト</a>  
     
     window.location.href = 'https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo.html';
+  
+  
+  
   
   
   __6.webサイトをデプロイする.__
