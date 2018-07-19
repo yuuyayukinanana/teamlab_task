@@ -1,5 +1,5 @@
 # teamlab_task(ToDoリスト)
-Overview  
+__Overview__  
   このプログラムはweb上で動作する非常に扱いやすいUIデザインのToDoリストのプログラムである.  
   特徴として  
   ・UIKIT3を使った現代的なモダンなUIデザイン  
@@ -11,7 +11,7 @@ Overview
 
 
 ## Demo
-デモページ  
+__デモページ__  
 https://todo-a383d.firebaseapp.com/todo_list.html
 
 
@@ -28,13 +28,13 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 
 ## Install
 ・Firebaseのhostingを作成する。   
-  1.コマンドラインを開き、npmでFirebase CLIをインストールする。    
+  __1.コマンドラインを開き、npmでFirebase CLIをインストールする。__    
   `npm install -g firebase-tools`
   
-  2.Firebaseにログインする。　　
+ __ 2.Firebaseにログインする。__ 　　
    `firebase  login`
    
-  3.インストールが完了したら、アプリを初期化する。  
+ __ 3.インストールが完了したら、アプリを初期化する。__   
   `firebase init`
   
   DatabaseとHostingにチェックをつけ、Enterを押す。
@@ -69,9 +69,9 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 
  
   
-  4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。  
+  __4.アプリを初期化したら、ディレクトリのルート(デフォルトはpublic)にtodo.html,todo_list.htmlを追加します。__  
   
-  5. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)  
+  __5. todo.htmlとtodo_list.htmlのファイルのソースコードの一部を変更します。(自分のFirebaseのプロジェクトIDをURLに書き込む)__  
   
   todo.html
     
@@ -87,7 +87,7 @@ https://todo-a383d.firebaseapp.com/todo_list.html
     window.location.href = 'https://自分のFirebaseのプロジェクトID.firebaseapp.com/todo.html';
   
   
-  6.webサイトをデプロイする.
+  __6.webサイトをデプロイする.__
   `firebase deploy`
  
 　
