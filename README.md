@@ -25,13 +25,52 @@ https://todo-a383d.firebaseapp.com/todo_list.html
   
   
 ## Usage
-__・ToDoリストの作成__
-__・ToDoリストへ移動__
-__・ToDoリストの削除__
-__・新規ToDoを作成__
-__・ToDoを完了させる__
-__・ToDoを削除__
-__・検索__
+__・ToDoリストの作成__  
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.24.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.56.56.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.06.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
+![Alt text]()
+![Alt text]()
+![Alt text]()
+![Alt text]()
+__・ToDoリストへ移動__  
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.00.png)
+
+__・ToDoリストの削除__  
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.36.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.42.png)
+
+__・新規ToDoを作成__  
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.57.18.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.28.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.37.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.58.47.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%201.59.51.png)
+
+
+__・ToDoを完了させる__  
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.32.42.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.04.15.png)
+
+
+__・ToDoを削除__  
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.32.42.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.33.19.png)
+
+__・検索__  
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.29.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.35.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.41.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.47.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.00.53.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.10.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.17.png)
+![Alt text](https://github.com/yuuyayukinanana/teamlab_task/blob/master/images/スクリーンショット%202018-07-20%202.01.24.png)
+
+
 
   
   
