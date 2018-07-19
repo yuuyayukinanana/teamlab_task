@@ -1,18 +1,17 @@
 # teamlab_task(ToDoリスト)
-====
-Overview
-  このプログラムはweb上で動作する非常に扱いやすいUIデザインのToDoリストのプログラムである.
-  特徴として
-  ・UIKIT3を使った現代的なモダンなUIデザイン
-  ・画面遷移の少ない非常にスマートフォンのアプリケーションのような操作
-  ・直感的な操作をしやすいボタン
+Overview  
+  このプログラムはweb上で動作する非常に扱いやすいUIデザインのToDoリストのプログラムである.  
+  特徴として  
+  ・UIKIT3を使った現代的なモダンなUIデザイン  
+  ・画面遷移の少ない非常にスマートフォンのアプリケーションのような操作  
+  ・直感的な操作をしやすいボタン  
   が挙げられる。
 
 ## Description
 
 
 ## Demo
-デモページ
+デモページ  
 https://todo-a383d.firebaseapp.com/todo_list.html
 
 ## VS. 
@@ -29,7 +28,7 @@ https://todo-a383d.firebaseapp.com/todo_list.html
 ## Usage
 
 ## Install
-・Firebaseのhostingを作成する
+・Firebaseのhostingを作成する  
   1.`npm install -g firebase-tools`
 
 ## Contribution
